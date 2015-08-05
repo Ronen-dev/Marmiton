@@ -1,1 +1,1 @@
-Hello <?=$data['name']?>
+Hello <?php if (isset($data['name'])) {echo $data['name'];}?>

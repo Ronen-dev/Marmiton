@@ -1,1 +1,1 @@
-<p>Bonjour la famille <?=$data['name']?></p>
+<p>Bonjour la famille <?php echo $data['name']?></p>
