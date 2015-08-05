@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Shop Homepage - Start Bootstrap Template</title>
+    <title>Marmiton - La délicieuse recette</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="../../../public/css/bootstrap.min.css" rel="stylesheet">
@@ -243,7 +243,7 @@
     <footer>
         <div class="row">
             <div class="col-lg-12">
-                <p>Copyright &copy; Your Website 2014</p>
+                <p>Copyright &copy; Marmiton 2015</p>
             </div>
         </div>
     </footer>
@@ -252,10 +252,10 @@
 <!-- /.container -->
 
 <!-- jQuery -->
-<script src="../../public/js/jquery.js"></script>
+<script src="../../../public/js/jquery.js"></script>
 
 <!-- Bootstrap Core JavaScript -->
-<script src="../../public/js/bootstrap.min.js"></script>
+<script src="../../../public/js/bootstrap.min.js"></script>
 
 </body>
 
