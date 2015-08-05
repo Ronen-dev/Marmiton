@@ -2,7 +2,7 @@
 
 class Home extends Controller
 {
-    public function index($name = '')
+    public function index($name = 'étranger')
     {
         $user = $this->model('User');
         $user->$name = $name;
