@@ -66,6 +66,15 @@
     <!-- /.container -->
 </nav>
 
+<?php
+$connection = mysqli_connect("localhost", "root", "root", "marmiton_db");
+
+if (!$connection){
+    echo "Une erreur s'est produite.\n";
+    exit;
+}
+?>
+
 <!-- Page Content -->
 <div class="container">
 
@@ -74,9 +83,21 @@
         <div class="col-md-3">
             <p class="lead">Catégorie de recette</p>
             <div class="list-group">
-                <a href="#" class="list-group-item">Cuisine du monde</a>
-                <a href="#" class="list-group-item">Italien</a>
-                <a href="#" class="list-group-item">Turque</a>
+                <?php
+                    $query = "SELECT * FROM categorie";
+
+                    $result = mysqli_query($connection, $query);
+
+                    if (!$result)
+                    {
+                        echo "Une erreur s'est produite.\n";
+                        exit;
+                    }
+
+                    if (mysqli_num_rows($result) > 0){
+                    while($row = mysqli_fetch_assoc($result)){ ?>
+                        <a href="#" class="list-group-item"><?php echo $row['nom']; ?></a>
+                    <?php } } ?>
             </div>
         </div>
 
@@ -85,12 +106,6 @@
             <div class="row">
 
                 <?php
-                    $connection = mysqli_connect("localhost", "root", "root", "marmiton_db");
-
-                    if (!$connection){
-                        echo "Une erreur s'est produite.\n";
-                        exit;
-                    }
 
                     $query = "SELECT * FROM recette";
 
@@ -108,8 +123,8 @@
                             <div class="thumbnail" >
                                 <img src = "<?php echo '../../../public/img/' . $row['id'] . '.jpg'; ?>" alt = "" >
                                 <div class="caption" >
-                                    <h4 class="pull-right" > $24.99 </h4 >
-                                    <h4 ><a href = "#" > <?php echo $row['titre'];; ?> </a >
+                                    <h4 class="pull-right" ></h4 >
+                                    <h4 ><a href = "<?php echo '/public/Marmiton/public/recette/affiche/' . $row['id']; ?>" > <?php echo $row['titre']; ?> </a >
                                     </h4 >
                                     <p > <?php echo $row['description']; ?></a></p>
                                 </div >

@@ -2,12 +2,12 @@
 
 class Recette extends Controller
 {
-    public function index($name = 'étranger')
+    public function affiche($id_recette = 'test')
     {
-        $user = $this->model('User');
-        $user->$name = $name;
+        $recette = $this->model('User');
+        $recette->$id_recette = $id_recette;
 
-        $this->view('recette/index', ['name' => $user->$name]);
+        $this->view('recette/affiche', ['name' => $recette->$id_recette]);
     }
 
     public function liste($name = 'étranger')
