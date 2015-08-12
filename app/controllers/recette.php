@@ -1,20 +1,20 @@
 <?php
 
-class Home extends Controller
+class Recette extends Controller
 {
     public function index($name = 'étranger')
     {
         $user = $this->model('User');
         $user->$name = $name;
 
-        $this->view('home/index', ['name' => $user->$name]);
+        $this->view('recette/index', ['name' => $user->$name]);
     }
 
-    public function recette($name = 'étranger')
+    public function liste($name = 'étranger')
     {
         $user = $this->model('User');
         $user->$name = $name;
 
-        $this->view('home/recette', ['name' => $user->$name]);
+        $this->view('recette/liste', ['name' => $user->$name]);
     }
 }

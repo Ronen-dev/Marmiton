@@ -1,1 +1,0 @@
-<p>Bonjour la famille <?php echo $data['name']?></p>
