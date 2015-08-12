@@ -42,4 +42,8 @@ class My_connexion
         $result = $sth->fetchAll(PDO::FETCH_ASSOC);
         return $result;
     }
+
+    public static function updateRecette($conn, $pseudo, $email, $titre, $contenu){
+        $sql = "INSERT INTO recette ()"
+    }
 }

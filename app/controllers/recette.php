@@ -11,11 +11,18 @@ class Recette extends Controller
         if (!($db->connect())){
             $this->view('recette/affiche', ['result' => "ERROR : Failure connection Database."]);
         }
-        else{
+        else {
             $connect = $db->connect();
             $affiche_recette = $db->afficheRecette($connect, $recette->$id_recette);
             $affiche_categorie = $db->getCategorie($connect);
             $this->view('recette/affiche', ['recette' => $affiche_recette, 'categorie' => $affiche_categorie]);
+        }
+
+        if (isset($_POST['pseudo']) && isset($_POST['email']) && isset($_POST['titre']) && isset($_POST['contenu'])){
+            $pseudo  = $_POST['pseudo'];
+            $email   = $_POST['email'];
+            $titre   = $_POST['titre'];
+            $contenu = $_POST['contenu'];
         }
 
 
@@ -23,18 +30,20 @@ class Recette extends Controller
 
     public function liste()
     {
-        /*$user = $this->model('User');
-        $user->$name = $name;
-
-        $this->view('recette/liste', ['name' => $user->$name]);*/
         $db = new My_connexion();
         if (!($db->connect())){
             $this->view('recette/liste', ['name' => 'pas ok']);
         }
-        else{
+        else {
             $connect = $db->connect();
-            $result = $db->listeRecette($connect);
-            $this->view('recette/liste', ['result' => $result]);
+            $affiche_liste = $db->listeRecette($connect);
+            $affiche_categorie = $db->getCategorie($connect);
+            $this->view('recette/liste', ['liste' => $affiche_liste, 'categorie' => $affiche_categorie]);
         }
+    }
+
+    public function creer()
+    {
+
     }
 }

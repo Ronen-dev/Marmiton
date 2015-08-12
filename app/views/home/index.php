@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
+    <link rel="shortcut icon" type="image/x-icon" href="http://images.marmitoncdn.org/skins/1/common/images/favicon.ico">
 
     <title>Marmiton - La délicieuse recette</title>
 
@@ -48,10 +49,7 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
                 <li>
-                    <a href="#">Hello <?php if (isset($data['name'])) {echo $data['name'];}?></a>
-                </li>
-                <li>
-                    <a href="#">Accueil</a>
+                    <a href="/public/Marmiton/public/home/index/">Accueil</a>
                 </li>
                 <li>
                     <a href="/public/Marmiton/public/recette/liste/">Recette</a>
@@ -74,9 +72,9 @@
         <div class="col-md-3">
             <p class="lead">Catégorie de recette</p>
             <div class="list-group">
-                <a href="#" class="list-group-item">Cuisine du monde</a>
-                <a href="#" class="list-group-item">Italien</a>
-                <a href="#" class="list-group-item">Turque</a>
+                <?php foreach($data['categorie'] as $value) { ?>
+                    <a href="#" class="list-group-item"><?php echo $value['nom']; ?></a>
+                <?php } ?>
             </div>
         </div>
 

@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
+    <link rel="shortcut icon" type="image/x-icon" href="http://images.marmitoncdn.org/skins/1/common/images/favicon.ico">
 
     <title>Marmiton - La délicieuse recette</title>
 
@@ -48,10 +49,10 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
                 <li>
-                    <a href="#">Accueil</a>
+                    <a href="/public/Marmiton/public/home/index/">Accueil</a>
                 </li>
                 <li>
-                    <a href="#">Recette</a>
+                    <a href="/public/Marmiton/public/recette/liste/">Recette</a>
                 </li>
                 <li>
                     <a href="#">Contact</a>
