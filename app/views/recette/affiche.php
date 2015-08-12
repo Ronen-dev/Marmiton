@@ -48,9 +48,6 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
                 <li>
-                    <a href="#">Hello <?php if (isset($data['name'])) {echo $data['name'];}?></a>
-                </li>
-                <li>
                     <a href="#">Accueil</a>
                 </li>
                 <li>
@@ -74,19 +71,18 @@
         <div class="col-md-3">
             <p class="lead">Catégorie de recette</p>
             <div class="list-group">
-                <a href="#" class="list-group-item">Cuisine du monde</a>
-                <a href="#" class="list-group-item">Italien</a>
-                <a href="#" class="list-group-item">Turque</a>
+                <?php foreach($data['categorie'] as $value) { ?>
+                    <a href="#" class="list-group-item"><?php echo $value['nom']; ?></a>
+                <?php } ?>
             </div>
         </div>
 
         <div class="col-md-9">
 
             <div class="row">
-                <?php if (!empty($data['id_recette'])) {?>
-                    <?php echo $data['id_recette']; ?>
-                <?php } else { ?>
-                    <?php echo "Il n'y a pas d'article !"; ?>
+                <?php foreach($data['recette'] as $value){ ?>
+                    <?php echo $value['titre']; ?>
+                    <?php echo $value['description']; ?>
                 <?php } ?>
             </div>
 
@@ -109,7 +105,6 @@
             </div>
         </div>
     </footer>
-
 </div>
 <!-- /.container -->
 

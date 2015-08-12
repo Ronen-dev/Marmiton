@@ -4,3 +4,4 @@ require_once '../app/init.php';
 
 $application = new App;
 
+$connexion = new My_connexion;

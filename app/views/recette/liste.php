@@ -48,9 +48,6 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
                 <li>
-                    <a href="#">Hello <?php if (isset($data['name'])) {echo $data['name'];}?></a>
-                </li>
-                <li>
                     <a href="#">Accueil</a>
                 </li>
                 <li>
@@ -66,15 +63,6 @@
     <!-- /.container -->
 </nav>
 
-<?php
-$connection = mysqli_connect("localhost", "root", "root", "marmiton_db");
-
-if (!$connection){
-    echo "Une erreur s'est produite.\n";
-    exit;
-}
-?>
-
 <!-- Page Content -->
 <div class="container">
 
@@ -84,7 +72,7 @@ if (!$connection){
             <p class="lead">Catégorie de recette</p>
             <div class="list-group">
                 <?php
-                    $query = "SELECT * FROM categorie";
+/*                    $query = "SELECT * FROM categorie";
 
                     $result = mysqli_query($connection, $query);
 
@@ -95,9 +83,9 @@ if (!$connection){
                     }
 
                     if (mysqli_num_rows($result) > 0){
-                    while($row = mysqli_fetch_assoc($result)){ ?>
-                        <a href="#" class="list-group-item"><?php echo $row['nom']; ?></a>
-                    <?php } } ?>
+                    while($row = mysqli_fetch_assoc($result)){ */?><!--
+                        <a href="#" class="list-group-item"><?php /*echo $row['nom']; */?></a>
+                    --><?php /*} } */?>
             </div>
         </div>
 
@@ -105,42 +93,29 @@ if (!$connection){
 
             <div class="row">
 
-                <?php
-
-                    $query = "SELECT * FROM recette";
-
-                    $result = mysqli_query($connection, $query);
-
-                    if (!$result)
-                    {
-                        echo "Une erreur s'est produite.\n";
-                        exit;
-                    }
-
-                    if (mysqli_num_rows($result) > 0){
-                        while($row = mysqli_fetch_assoc($result)){ ?>
-                            <div class="col-sm-4 col-lg-4 col-md-4" >
-                            <div class="thumbnail" >
-                                <img src = "<?php echo '../../../public/img/' . $row['id'] . '.jpg'; ?>" alt = "" >
-                                <div class="caption" >
-                                    <h4 class="pull-right" ></h4 >
-                                    <h4 ><a href = "<?php echo '/public/Marmiton/public/recette/affiche/' . $row['id']; ?>" > <?php echo $row['titre']; ?> </a >
-                                    </h4 >
-                                    <p > <?php echo $row['description']; ?></a></p>
-                                </div >
-                                <div class="ratings" >
-                                    <p class="pull-right" > 15 reviews </p >
-                                    <p >
-                                        <span class="glyphicon glyphicon-star" ></span >
-                                        <span class="glyphicon glyphicon-star" ></span >
-                                        <span class="glyphicon glyphicon-star" ></span >
-                                        <span class="glyphicon glyphicon-star" ></span >
-                                        <span class="glyphicon glyphicon-star" ></span >
-                                    </p >
-                                </div >
+                <?php foreach ($data['result'] as $value) { ?>
+                    <div class="col-sm-4 col-lg-4 col-md-4" >
+                        <div class="thumbnail" >
+                            <img src = "<?php echo '../../../public/img/' . $value['id'] . '.jpg'; ?>" alt = "" >
+                            <div class="caption" >
+                                <h4 class="pull-right" ></h4 >
+                                <h4 ><a href = "<?php echo '/public/Marmiton/public/recette/affiche/' . $value['id']; ?>" > <?php echo $value['titre']; ?> </a >
+                                </h4 >
+                                <p > <?php echo $value['description']; ?></a></p>
+                            </div >
+                            <div class="ratings" >
+                                <p class="pull-right" > 15 reviews </p >
+                                <p >
+                                    <span class="glyphicon glyphicon-star" ></span >
+                                    <span class="glyphicon glyphicon-star" ></span >
+                                    <span class="glyphicon glyphicon-star" ></span >
+                                    <span class="glyphicon glyphicon-star" ></span >
+                                    <span class="glyphicon glyphicon-star" ></span >
+                                </p >
                             </div >
                         </div >
-                <?php } } ?>
+                    </div >
+                <?php } ?>
             </div>
 
         </div>
