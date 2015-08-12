@@ -84,28 +84,48 @@
 
             <div class="row">
 
-                    <div class="col-sm-4 col-lg-4 col-md-4">
-                        <div class="thumbnail">
-                            <img src="http://placehold.it/320x150" alt="">
-                            <div class="caption">
-                                <h4 class="pull-right">$24.99</h4>
-                                <h4><a href="#">First Product</a>
-                                </h4>
-                                <p>See more snippets like this online store item at <a target="_blank" href="http://www.bootsnipp.com">Bootsnipp - http://bootsnipp.com</a>.</p>
-                            </div>
-                            <div class="ratings">
-                                <p class="pull-right">15 reviews</p>
-                                <p>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
+                <?php
+                    $connection = mysqli_connect("localhost", "root", "root", "marmiton_db");
 
+                    if (!$connection){
+                        echo "Une erreur s'est produite.\n";
+                        exit;
+                    }
+
+                    $query = "SELECT * FROM recette";
+
+                    $result = mysqli_query($connection, $query);
+
+                    if (!$result)
+                    {
+                        echo "Une erreur s'est produite.\n";
+                        exit;
+                    }
+
+                    if (mysqli_num_rows($result) > 0){
+                        while($row = mysqli_fetch_assoc($result)){ ?>
+                            <div class="col-sm-4 col-lg-4 col-md-4" >
+                            <div class="thumbnail" >
+                                <img src = "<?php echo '../../../public/img/' . $row['id'] . '.jpg'; ?>" alt = "" >
+                                <div class="caption" >
+                                    <h4 class="pull-right" > $24.99 </h4 >
+                                    <h4 ><a href = "#" > <?php echo $row['titre'];; ?> </a >
+                                    </h4 >
+                                    <p > <?php echo $row['description']; ?></a></p>
+                                </div >
+                                <div class="ratings" >
+                                    <p class="pull-right" > 15 reviews </p >
+                                    <p >
+                                        <span class="glyphicon glyphicon-star" ></span >
+                                        <span class="glyphicon glyphicon-star" ></span >
+                                        <span class="glyphicon glyphicon-star" ></span >
+                                        <span class="glyphicon glyphicon-star" ></span >
+                                        <span class="glyphicon glyphicon-star" ></span >
+                                    </p >
+                                </div >
+                            </div >
+                        </div >
+                <?php } } ?>
             </div>
 
         </div>
