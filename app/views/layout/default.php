@@ -17,6 +17,9 @@
     <!-- Custom CSS -->
     <link href="../../../public/css/shop-homepage.css" rel='stylesheet'>
 
+    <!-- Surcouche CSS -->
+    <link href="../../../public/css/style.css" rel='stylesheet'>
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -39,16 +42,16 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Start Bootstrap</a>
+            <a class="navbar-brand" href="#"><img src="../../../public/img/resize_marmiton.gif"</a>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
                 <li>
-                    <a href="#">About</a>
+                    <a href="#">Accueil</a>
                 </li>
                 <li>
-                    <a href="#">Services</a>
+                    <a href="#">Recette</a>
                 </li>
                 <li>
                     <a href="#">Contact</a>
@@ -66,11 +69,11 @@
     <div class="row">
 
         <div class="col-md-3">
-            <p class="lead">Shop Name</p>
+            <p class="lead">Catégorie de recette</p>
             <div class="list-group">
-                <a href="#" class="list-group-item">Category 1</a>
-                <a href="#" class="list-group-item">Category 2</a>
-                <a href="#" class="list-group-item">Category 3</a>
+                <a href="#" class="list-group-item">Cuisine du monde</a>
+                <a href="#" class="list-group-item">Italien</a>
+                <a href="#" class="list-group-item">Turque</a>
             </div>
         </div>
 
@@ -87,13 +90,13 @@
                         </ol>
                         <div class="carousel-inner">
                             <div class="item active">
-                                <img class="slide-image" src="http://placehold.it/800x300" alt="">
+                                <img class="slide-image" src="../../../public/img/gastro1.jpeg" alt="">
                             </div>
                             <div class="item">
-                                <img class="slide-image" src="http://placehold.it/800x300" alt="">
+                                <img class="slide-image" src="../../../public/img/resize_gastro2.jpg" alt="">
                             </div>
                             <div class="item">
-                                <img class="slide-image" src="http://placehold.it/800x300" alt="">
+                                <img class="slide-image" src="../../../public/img/resize_dessert1.jpg" alt="">
                             </div>
                         </div>
                         <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
