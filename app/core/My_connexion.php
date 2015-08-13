@@ -44,6 +44,11 @@ class My_connexion
     }
 
     public static function updateRecette($conn, $pseudo, $email, $titre, $contenu){
-        $sql = "INSERT INTO recette ()"
+        $sql = "INSERT INTO user (pseudo, email) VALUES (" . $pseudo . ", " . $email . ")";
+        $sth = $conn->prepare($sql);
+        $sth->execute();
+        $sql = "INSERT INTO recette (titre, description) VALUES (" . $titre . ", " . $contenu . ")";
+        $sth = $conn->prepare($sql);
+        $sth->execute();
     }
 }
