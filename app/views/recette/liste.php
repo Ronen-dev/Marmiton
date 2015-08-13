@@ -73,7 +73,7 @@
             <p class="lead">Catégorie de recette</p>
             <div class="list-group">
                 <?php foreach($data['categorie'] as $value) { ?>
-                    <a href="#" class="list-group-item"><?php echo $value['nom']; ?></a>
+                    <a href="<?php echo '/public/Marmiton/public/recette/liste/' . $value['id']?>" class="list-group-item"><?php echo $value['nom']; ?></a>
                 <?php } ?>
             </div>
         </div>
@@ -85,7 +85,7 @@
                 <?php foreach ($data['liste'] as $value) { ?>
                     <div class="col-sm-4 col-lg-4 col-md-4" >
                         <div class="thumbnail" >
-                            <img src = "<?php echo '../../../public/img/' . $value['id'] . '.jpg'; ?>" alt = "" >
+                            <img src = "<?php echo '../../../public/img/' . $value['titre'] . '.jpg'; ?>" alt = "" >
                             <div class="caption" >
                                 <h4 class="pull-right" ></h4 >
                                 <h4 ><a href = "<?php echo '/public/Marmiton/public/recette/affiche/' . $value['id']; ?>" > <?php echo $value['titre']; ?> </a >
@@ -122,7 +122,7 @@
                         <div class="modal-body">
 
                             <!-- content goes here -->
-                            <form method="POST" action="">
+                            <form method="POST" action="/public/Marmiton/public/recette/liste/" enctype="multipart/form-data">
                                 <div class="form-group">
                                     <label for="pseudo">Pseudo</label>
                                     <input type="text" class="form-control" name="pseudo" id="pseudo" placeholder="Entrez votre pseudo">
@@ -132,17 +132,24 @@
                                     <input type="email" class="form-control" name="email" id="email" placeholder="Entrez votre e-mail">
                                 </div>
                                 <div class="form-group">
+                                    <label for="categorie">Catégorie</label>
+                                    <select class="form-control" name="categorie">
+                                        <?php foreach($data['categorie'] as $value) { ?>
+                                            <option value="<?php echo $value['id']; ?>"><?php echo $value['nom']; ?></option>
+                                        <?php } ?>
+                                    </select>
+                                </div>
+                                <div class="form-group">
                                     <label for="titre">Titre de la recette</label>
                                     <input type="text" class="form-control" name="titre" id="titre" placeholder="Titre de la recette">
                                 </div>
                                 <div class="form-group">
                                     <label for="contenu">Contenu</label>
-                                    <textarea class="form-control" name="contenu" rows="5" placeholder="Saisir le contenu de la recette"></textarea>
+                                    <textarea class="form-control" name="description" rows="5" placeholder="Saisir le contenu de la recette"></textarea>
                                 </div>
                                 <div class="form-group">
                                     <label for="image">Choisissez une image</label>
-                                    <input type="file" id="image">
-                                    <p class="help-block">Example block-level help text here.</p>
+                                    <input type="file" name="image" id="image">
                                 </div>
                                 <button type="submit" class="btn btn-default">Envoyer</button>
                             </form>

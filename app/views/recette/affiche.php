@@ -81,10 +81,15 @@
         <div class="col-md-9">
 
             <div class="row">
-                <?php foreach($data['recette'] as $value){ ?>
-                    <?php echo $value['titre']; ?>
-                    <?php echo $value['description']; ?>
-                <?php } ?>
+                <div class="text-center">
+                    <?php foreach($data['recette'] as $value){ ?>
+                        <img src = "<?php echo '../../../public/img/' . $value['titre] . '.jpg'; ?>" alt = "" >
+                        <br>
+                        <h1 class="orange"><?php echo $value['titre']; ?></h1>
+                        <br>
+                        <?php echo $value['description']; ?>
+                    <?php } ?>
+                </div>
             </div>
 
         </div>
